@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
 
 function FormsComponent() {
@@ -12,9 +12,9 @@ function FormsComponent() {
   const [editIndex, setEditIndex] = useState(null);
   const [formFlag, setFormFlag] = useState(null);
 
-  useEffect(() =>{
+  useEffect(() => {
     setFormFlag(false);
-  },[])
+  }, [])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,10 +35,9 @@ function FormsComponent() {
         city: '',
         pin: '',
       });
-    }else{
+    } else {
       setFormFlag(true)
-     console.log(FormValidations(),'331:::') 
-    } 
+    }
   };
 
   const RemoveRow = (index) => {
@@ -47,28 +46,33 @@ function FormsComponent() {
     setTableData(vc);
   };
 
-  const EditTable = (rowIndex, rowData) => {
+  const EditTable = (rowIndex) => {
     setEditIndex(rowIndex);
     setData(tableData[rowIndex]);
   };
-
   const handleEdit = () => {
     tableData.splice(editIndex, 1, data);
     setTableData([...tableData]);
     setEditIndex(null);
+    setData({
+      fname: '',
+      lname: '',
+      city: '',
+      pin: ''
+    })
   };
 
-  const FormValidations = () =>{
-  const validate =  data.fname !== '' &&
-    data.lname !== '' &&
-    data.city !== '' &&
-    data.pin !== ''
+  const FormValidations = () => {
+    const validate = data.fname !== '' &&
+      data.lname !== '' &&
+      data.city !== '' &&
+      data.pin !== ''
     return validate
   }
 
   return (
     <div>
-      
+
       <div>
         <label htmlFor="">FirstName:</label>
         <input
@@ -78,7 +82,7 @@ function FormsComponent() {
           onChange={handleChange}
           required
         />
-        <p>{formFlag && data.fname === '' ? <span class="errorMessage">This form is Required</span> :''}</p>
+        <p>{formFlag && data.fname === '' ? <span class="errorMessage">This form is Required</span> : ''}</p>
       </div>
       <div>
         <label htmlFor="">LastName:</label>
@@ -89,7 +93,7 @@ function FormsComponent() {
           onChange={handleChange}
           required
         />
-          <p>{formFlag && data.lname === '' ? <span class="errorMessage">This form is Required</span> :''}</p>
+        <p>{formFlag && data.lname === '' ? <span class="errorMessage">This form is Required</span> : ''}</p>
       </div>
       <div>
         <label htmlFor="">City:</label>
@@ -100,7 +104,7 @@ function FormsComponent() {
           onChange={handleChange}
           required
         />
-          <p>{formFlag && data.city === '' ? <span class="errorMessage">This form is Required</span> :''}</p>
+        <p>{formFlag && data.city === '' ? <span class="errorMessage">This form is Required</span> : ''}</p>
       </div>
 
       <div>
@@ -112,7 +116,7 @@ function FormsComponent() {
           onChange={handleChange}
           required
         />
-          <p>{formFlag && data.pin === '' ? <span class="errorMessage">This form is Required</span> :''}</p>
+        <p>{formFlag && data.pin === '' ? <span class="errorMessage">This form is Required</span> : ''}</p>
       </div>
       <br />
       {editIndex === null ? (
@@ -151,7 +155,7 @@ function FormsComponent() {
         'There is No Users Data'
       )}
     </div>
-    
+
   );
 }
 
