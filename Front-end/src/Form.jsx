@@ -19,8 +19,8 @@ function FormsComponent() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
-
   };
+  
   const handleSubmit = (e) => {
     if (
       FormValidations()
@@ -47,6 +47,7 @@ function FormsComponent() {
   };
 
   const EditTable = (rowIndex) => {
+    console.log(rowIndex,'50')
     setEditIndex(rowIndex);
     setData(tableData[rowIndex]);
   };
@@ -72,7 +73,6 @@ function FormsComponent() {
 
   return (
     <div>
-
       <div>
         <label htmlFor="">FirstName:</label>
         <input
@@ -128,12 +128,14 @@ function FormsComponent() {
       {tableData.length ? (
         <table border="1">
           <thead>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>City</th>
-            <th>PinCode</th>
-            <th>Remove</th>
-            <th>Edit</th>
+            <tr>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>City</th>
+              <th>PinCode</th>
+              <th>Remove</th>
+              <th>Edit</th>
+            </tr>
           </thead>
           <tbody>
             {tableData.length > 0 &&
