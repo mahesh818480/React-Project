@@ -8,3 +8,9 @@
   button{
    color: rgb(232, 232, 240);
   }
+  .container{
+    margin: 0 50px;
+    box-shadow: 0 0 5px;
+    border-radius: 5px;
+    padding: 10px;
+  }
