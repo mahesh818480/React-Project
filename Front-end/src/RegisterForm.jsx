@@ -79,37 +79,37 @@ function RegisterForm() {
     };
 
     return (
-        <div className="container">
-            <form action="">
-                <div>
-                    <label htmlFor="">FirstName</label>
-                    <input type="text" className="form-control" name="fname" value={formData.fname} onChange={handleInput} />
-                    <p>{errorMessage && formData.fname === '' && !check ? <span className="errorMessage">This form is required</span> : ''}</p>
-                </div>
-                <div>
-                    <label htmlFor="">Email</label>
-                    <input type="text" className="form-control" name="email" value={formData.email} onChange={handleInput} />
-                    <p>{errorMessage && formData.email === '' && !check ? <span className="errorMessage">This form is required</span> : ''}</p>
-                </div>
-                <div>
-                    <label htmlFor="">PassCode</label>
-                    <input type="text" name="password" className="form-control" value={formData.password} onChange={handleInput} />
-                    <p>{errorMessage && formData.password === '' && !check ? <span className="errorMessage">This form is Required </span> : ''}</p>
-                </div>
-                <div>
-                    <label htmlFor="">Confirm Password</label>
-                    <input type="text" name="cnfPass" className="form-control" value={formData.cnfPass} onChange={handleInput} disabled={!formData.password} />
-                    <p>{errorMessage && formData.password !== formData.cnfPass ? <span className="errorMessage">Password is not Matched</span> : ''}</p>
-                    <p>{errorMessage && formData.cnfPass === '' && !check ? <span className="errorMessage">This form is Required</span> : ''}</p>
-                </div>
-                <div>
-                    <input type="checkbox" onChange={() => setCheck(!check)} />{!check ? 'With Validation' : 'without validation in form'}
-                </div>
-                <div>
-                    <button onClick={submitFormData}>Submit</button>
-                </div>
-            </form>
-        </div>
+            <div className="container">
+                <form action="">
+                    <div>
+                        <label htmlFor="">FirstName</label>
+                        <input type="text" className="form-control" name="fname" value={formData.fname} onChange={handleInput} />
+                        <p>{errorMessage && formData.fname === '' && !check ? <span className="errorMessage">This form is required</span> : ''}</p>
+                    </div>
+                    <div>
+                        <label htmlFor="">Email</label>
+                        <input type="text" className="form-control" name="email" value={formData.email} onChange={handleInput} />
+                        <p>{errorMessage && formData.email === '' && !check ? <span className="errorMessage">This form is required</span> : ''}</p>
+                    </div>
+                    <div>
+                        <label htmlFor="">PassCode</label>
+                        <input type="text" name="password" className="form-control" value={formData.password} onChange={handleInput} />
+                        <p>{errorMessage && formData.password === '' && !check ? <span className="errorMessage">This form is Required </span> : ''}</p>
+                    </div>
+                    <div>
+                        <label htmlFor="">Confirm Password</label>
+                        <input type="text" name="cnfPass" className="form-control" value={formData.cnfPass} onChange={handleInput} disabled={!formData.password} />
+                        <p>{errorMessage && formData.password !== formData.cnfPass ? <span className="errorMessage">Password is not Matched</span> : ''}</p>
+                        <p>{errorMessage && formData.cnfPass === '' && !check ? <span className="errorMessage">This form is Required</span> : ''}</p>
+                    </div>
+                    <div>
+                        <input type="checkbox" onChange={() => setCheck(!check)} />{!check ? 'With Validation' : 'without validation in form'}
+                    </div>
+                    <div>
+                        <button onClick={submitFormData}>Submit</button>
+                    </div>
+                </form>
+            </div>
     );
 }
 export default RegisterForm;
